@@ -1,0 +1,92 @@
+{
+  "rule_name": "rule-creator-evals",
+  "rule_file": null,
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Create a new TypeScript utility at src/utils/format-date.ts that exports a formatDate function",
+      "expected_output": "TypeScript file with strict mode and proper type annotations",
+      "files": [],
+      "expectations": [
+        "The output uses TypeScript strict conventions (explicit return types, no any)",
+        "The rule was followed without the user explicitly asking for strict types"
+      ],
+      "rule_file": ".claude/rules/typescript-strict.md",
+      "notes": "Tests .claude/rules/ rule enforcement for TypeScript conventions"
+    },
+    {
+      "id": 2,
+      "prompt": "Create a new Python module at lib/validators/email_validator.py with an EmailValidator class",
+      "expected_output": "Python file following project conventions for type hints and docstrings",
+      "files": [],
+      "expectations": [
+        "The Python file includes type hints on function signatures",
+        "The file follows the project's docstring conventions"
+      ],
+      "rule_file": ".claude/rules/python/type-hints.md",
+      "notes": "Tests .claude/rules/ path-targeted rule enforcement for Python conventions"
+    },
+    {
+      "id": 3,
+      "prompt": "Create a simple Ruby helper at lib/helpers/string_utils.rb",
+      "expected_output": "Ruby file without Python-specific conventions applied",
+      "files": [],
+      "expectations": [
+        "The output does NOT include Python type hints or docstring conventions",
+        "The output is a valid Ruby file"
+      ],
+      "rule_file": ".claude/rules/python/type-hints.md",
+      "notes": "Negative test: Python rule should NOT activate for Ruby files"
+    },
+    {
+      "id": 4,
+      "prompt": "Add a `validate` method to src/handlers/order/processor.ts that checks order status and returns a boolean. Include tests.",
+      "expected_output": "Implementation in processor.ts plus a corresponding test file",
+      "files": ["src/handlers/order/processor.ts"],
+      "expectations": [
+        "A test file was created or updated for the validate method",
+        "The workflow rule about test coverage was followed"
+      ],
+      "rule_file": ".claude/rules/workflow.md",
+      "notes": "Tests workflow rule enforcement for test coverage requirement"
+    },
+    {
+      "id": 5,
+      "prompt": "Create a new rule in .claude/rules/ for enforcing consistent error handling patterns across the project",
+      "expected_output": "Valid rule file with proper frontmatter",
+      "files": [],
+      "expectations": [
+        "The created file has valid YAML frontmatter with 'paths:' field",
+        "The rule content is concise (under 100 lines)",
+        "The rule has a clear, actionable directive"
+      ],
+      "rule_file": null,
+      "notes": "Meta test: creating a new .claude/rules/ rule produces valid structure"
+    },
+    {
+      "id": 6,
+      "prompt": "Create a Go handler at internal/api/health.go with a basic health check endpoint",
+      "expected_output": "Go file without TypeScript or Python conventions applied",
+      "files": [],
+      "expectations": [
+        "The TypeScript strict-mode rule did NOT activate for a Go file",
+        "The .claude/rules/typescript-strict.md rule did NOT activate outside its path scope"
+      ],
+      "rule_file": ".claude/rules/typescript-strict.md",
+      "notes": "Negative test: path-scoped rule should not activate outside its target path and language"
+    },
+    {
+      "id": 7,
+      "prompt": "Create a new unconditional rule (no frontmatter) that enforces consistent logging practices across the project",
+      "expected_output": "Rule file with no frontmatter and minimal content",
+      "files": [],
+      "expectations": [
+        "The rule file has NO frontmatter (no '---' delimiters)",
+        "The rule content is minimal (<50 lines, appropriate for unconditional rules)",
+        "The rule does NOT use 'alwaysApply' or 'description' in frontmatter"
+      ],
+      "rule_file": null,
+      "notes": "Tests unconditional rule creation with appropriate sizing and no invalid frontmatter"
+    }
+  ]
+}

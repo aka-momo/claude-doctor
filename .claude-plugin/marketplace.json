@@ -1,0 +1,16 @@
+{
+  "name": "claude-doctor",
+  "owner": {
+    "name": "aka-momo"
+  },
+  "metadata": {
+    "description": "Claude Code skills for project health — rule creation, auditing, validation, and more"
+  },
+  "plugins": [
+    {
+      "name": "claude-doctor",
+      "source": "./",
+      "description": "Claude Code project health skills including rule creation, auditing, and validation"
+    }
+  ]
+}

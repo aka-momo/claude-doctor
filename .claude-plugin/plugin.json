@@ -1,0 +1,7 @@
+{
+  "name": "claude-doctor",
+  "description": "A collection of Claude Code skills for project health — rule creation, auditing, validation, and more.",
+  "author": {
+    "name": "aka-momo"
+  }
+}
