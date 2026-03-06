@@ -7,7 +7,7 @@ Reads grading.json files from run directories and produces:
 - Rule-specific: tokens_per_pass_rate_point efficiency metric
 
 Usage:
-    python -m scripts.aggregate_benchmark <benchmark_dir>
+    python3 -m scripts.aggregate_benchmark <benchmark_dir>
 
 Directory layout:
     <benchmark_dir>/

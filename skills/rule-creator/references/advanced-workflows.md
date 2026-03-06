@@ -16,7 +16,7 @@ Use `assets/eval_review.html` template — this is an interactive HTML template 
 
 ### Step 3: Run optimization loop
 ```bash
-cd .claude/skills/rule-creator && python -m scripts.run_loop \
+cd .claude/skills/rule-creator && python3 -m scripts.run_loop \
   --eval-set <path-to-eval.json> \
   --rule-path . \
   --model <model-id> \

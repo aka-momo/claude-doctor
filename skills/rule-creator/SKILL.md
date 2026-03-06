@@ -68,7 +68,7 @@ Understand what the user wants the rule to enforce:
 
 ### Phase 2: Interview & Research
 
-- Check existing rules for overlap (run `cd .claude/skills/rule-creator && python -m scripts.audit_rules`)
+- Check existing rules for overlap (run `cd .claude/skills/rule-creator && python3 -m scripts.audit_rules`)
 - Read existing rules in the same path scope to check for semantic contradictions (the audit script catches keyword overlap but not conflicting directives)
 - Check CLAUDE.md for conflicting directives — rules and CLAUDE.md are both loaded, and contradictions cause unpredictable behavior
 - Read `references/best-practices.md` for writing guidelines
@@ -103,7 +103,7 @@ Follow these principles from `references/best-practices.md`:
 
 Run validation:
 ```bash
-cd .claude/skills/rule-creator && python -m scripts.quick_validate <rule-file>
+cd .claude/skills/rule-creator && python3 -m scripts.quick_validate <rule-file>
 ```
 
 Note: Frontmatter is optional for `.claude/rules/` files.
@@ -148,12 +148,12 @@ When each subagent completes, save `timing.json` with `total_tokens`, `duration_
 1. **Grade each run** — use `agents/grader.md`. Save to `grading.json` with `text`, `passed`, `evidence` fields.
 2. **Aggregate**:
    ```bash
-   cd .claude/skills/rule-creator && python -m scripts.aggregate_benchmark <workspace>/iteration-N --rule-name <rule-name>
+   cd .claude/skills/rule-creator && python3 -m scripts.aggregate_benchmark <workspace>/iteration-N --rule-name <rule-name>
    ```
 3. **Analyze** — read benchmark data and surface patterns per `agents/analyzer.md`.
 4. **Launch viewer**:
    ```bash
-   cd .claude/skills/rule-creator && nohup python eval-viewer/generate_review.py \
+   cd .claude/skills/rule-creator && nohup python3 eval-viewer/generate_review.py \
      <workspace>/iteration-N \
      --rule-name "<rule-name>" \
      --benchmark <workspace>/iteration-N/benchmark.json \
@@ -194,7 +194,7 @@ Before deleting a rule, check whether other rules reference it (e.g., via `refer
 
 Run a full audit of all project rules (from the repository root):
 ```bash
-cd .claude/skills/rule-creator && python -m scripts.audit_rules
+cd .claude/skills/rule-creator && python3 -m scripts.audit_rules
 ```
 
 This reports:
